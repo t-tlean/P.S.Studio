@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 
-const images = ["public/images/bg1.jpg", "public/images/bg1.jpg", "public/images/bg1.jpg"];
+const images = ["images/bg1.jpg", "images/bg1.jpg", "images/bg1.jpg"];
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
