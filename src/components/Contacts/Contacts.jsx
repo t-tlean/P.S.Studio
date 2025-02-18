@@ -4,19 +4,19 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 const Contacts = () => {
   const contactData = [
     {
-      icon: <FaMapMarkerAlt className="text-brand text-3xl sm:text-4xl" />,
+      icon: <FaMapMarkerAlt className="text-brand text-3xl sm:text-4xl text-brand-light" />,
       title: "Адреса",
       subtitle: "Знайдіть нас тут",
       text: "Черкаси, вул. Б. Вишневецького, буд. 37, офіс 502",
     },
     {
-      icon: <FaPhoneAlt className="text-brand text-3xl sm:text-4xl" />,
+      icon: <FaPhoneAlt className="text-brand text-3xl sm:text-4xl text-brand-light" />,
       title: "Телефон",
       subtitle: "Зателефонуйте нам",
       text: "+38 (066) 785 0311  +38 (067) 114 3392",
     },
     {
-      icon: <FaEnvelope className="text-brand text-3xl sm:text-4xl" />,
+      icon: <FaEnvelope className="text-brand text-3xl sm:text-4xl text-brand-light" />,
       title: "Електронна пошта",
       subtitle: "Напишіть нам",
       text: "p.s.studio.main@gmail.com",
