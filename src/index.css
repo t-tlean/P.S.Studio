@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Black.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Black-Italic.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Bold-Italic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Medium-Italic.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gabriel Sans";
+  src: url("/src/assets/fonts/GabrielSans/Gabriel-Sans-Light-Italic.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@theme {
+  --color-brand-light: #5f6e87;
+  --color-brand-dark: #323c4b;
+  --font-gabriel: "Gabriel Sans", sans-serif;
+}
