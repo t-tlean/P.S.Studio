@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
 const images = ["images/bg1.jpg", "images/bg2.jpg", "images/bg3.jpg"];
 
@@ -7,8 +7,16 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Preload images to prevent flickering
   useEffect(() => {
-    if (isPaused) return; // Stop auto-switching when paused
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -20,8 +28,7 @@ const Hero = () => {
   const handleManualSwitch = (index) => {
     setCurrentIndex(index);
     setIsPaused(true);
-
-    setTimeout(() => setIsPaused(false), 5000); // Resume auto-switch after 5s
+    setTimeout(() => setIsPaused(false), 5000);
   };
 
   return (
@@ -34,15 +41,16 @@ const Hero = () => {
       {images.map((image, index) => (
         <motion.div
           key={index}
-          className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-900 ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ backgroundImage: `url(${image})` }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: index === currentIndex ? 1 : 0 }}
-          transition={{ duration: 1 }}
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(${image})`,
+            opacity: index === currentIndex ? 1 : 0,
+            transition: "opacity 1s ease-in-out",
+            willChange: "opacity",
+          }}
         ></motion.div>
       ))}
+
       <div className="absolute inset-0 bg-black/55"></div>
 
       <motion.div
@@ -76,7 +84,6 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Right-Side Slider with Appear Animation */}
       <motion.div
         className="absolute top-1/2 right-0 z-30 w-[80px] sm:flex hidden flex-col items-end space-y-4 mr-5"
         initial={{ opacity: 0, x: 30 }}
@@ -86,13 +93,10 @@ const Hero = () => {
         {images.map((_, index) => (
           <motion.div
             key={index}
-            className={`w-[60px] h-1.5 rounded-2xl transition-all duration-900 cursor-pointer ${
+            className={`w-[60px] h-1.5 rounded-2xl cursor-pointer transition-all duration-500 ${
               index === currentIndex ? "w-[80px] bg-white" : "bg-brand-light"
             }`}
             onClick={() => handleManualSwitch(index)}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 + index * 0.2 }}
           ></motion.div>
         ))}
       </motion.div>
