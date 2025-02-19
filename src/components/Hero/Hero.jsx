@@ -46,7 +46,9 @@ const Hero = () => {
             backgroundImage: `url(${image})`,
             opacity: index === currentIndex ? 1 : 0,
             transition: "opacity 1s ease-in-out",
-            willChange: "opacity",
+            willChange: "opacity, transform",
+            backfaceVisibility: "hidden",
+            transform: "translate3d(0,0,0)",
           }}
         ></motion.div>
       ))}
