@@ -1,0 +1,29 @@
+{
+  "service_technical_inventory": "Technical Inventory",
+  "service_construction_permits": "Construction Permits",
+  "service_commissioning": "Commissioning",
+  "service_legal_help": "Legal Help",
+  "contacts": "Contacts",
+  "service_technical_inventory_description": "We perform a detailed inspection of objects to create accurate technical passports that serve as the basis for further work.",
+  "service_construction_permits_description": "We take on all the responsibilities for preparing necessary documents and interacting with government authorities.",
+  "service_commissioning_description": "We ensure compliance with all requirements for obtaining certificates confirming the readiness of the facility for operation.",
+  "service_legal_help_description": "Legal support, including consultations, legal analysis, and assistance in all aspects related to construction.",
+  "we_are_here_for_you": "We are here for you",
+  "contact_us": "Contact Us",
+  "contact_us_description": "Have questions about us or our services? Please reach out to us.",
+  "working_hours": "We are available from 10:00 AM to 6:00 PM, Monday to Friday.",
+
+  "address": "Address",
+  "find_us_here": "Find us here",
+  "address_text": "Cherkasy, B. Vyshnevytskoho St., building 37, office 502",
+
+  "phone": "Phone",
+  "call_us": "Call us",
+  "phone_text": "+38 : (066) 785 0311 | (067) 114 3392",
+
+  "email": "Email",
+  "write_to_us": "Write to us",
+  "email_text": "p.s.studio.main@gmail.com",
+  "footer_about": "Your home can do more. Ensuring quality and excellence every day.",
+  "all_rights_reserved": "All rights reserved"
+}
