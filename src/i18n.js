@@ -14,7 +14,7 @@ i18n
       caches: ["localStorage"],
     },
     backend: {
-      loadPath: "locales/{{lng}}/translation.json", // Загружает файлы из public/locales
+      loadPath: "/P.S.Studio/locales/{{lng}}/translation.json", // Загружает файлы из public/locales
     },
     interpolation: { escapeValue: false },
   });
