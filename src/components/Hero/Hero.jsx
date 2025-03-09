@@ -10,25 +10,25 @@ const sections = [
     key: "service_technical_inventory", 
     descriptionKey: "service_technical_inventory_description", 
     icon: MdOutlineInventory,
-    image: "public/images/bg1.jpeg",
+    image: "images/bg1.jpeg",
   },
   {
     key: "service_construction_permits",
     descriptionKey: "service_construction_permits_description",
     icon: LuConstruction,
-    image: "public/images/bg2.jpeg",
+    image: "images/bg2.jpeg",
   },
   {
     key: "service_commissioning",
     descriptionKey: "service_commissioning_description",
     icon: FaCity,
-    image: "public/images/bg3.jpeg",
+    image: "images/bg3.jpeg",
   },
   {
     key: "service_legal_help",
     descriptionKey: "service_legal_help_description",
     icon: GoLaw,
-    image: "public/images/bg4.jpeg",
+    image: "images/bg4.jpeg",
   },
 ];
 
