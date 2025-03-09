@@ -3,57 +3,72 @@ import { MdOutlineInventory } from "react-icons/md";
 import { LuConstruction } from "react-icons/lu";
 import { FaCity } from "react-icons/fa";
 import { GoLaw } from "react-icons/go";
+import image1 from "/images/invent.jpeg";
+import image2 from "/images/perm.jpg";
+import image3 from "/images/comm.jpg";
+import image4 from "/images/assist.png";
+import { useTranslation } from "react-i18next";
 
 const sections = [
   {
-    title: "Технічна інвентаризація",
-    description:
-      "Ми здійснюємо детальний огляд об'єктів для створення точних технічних паспортів, які є основою для подальших робіт",
+    key: "service_technical_inventory", // Use translation key for title
+    descriptionKey: "service_technical_inventory_description", // Use translation key for description
     icon: MdOutlineInventory,
+    image: image1,
   },
   {
-    title: "Дозволи на будівництво",
-    description:
-      "Беремо на себе всі зобов’язання щодо підготовки необхідних документів та взаємодії з державними органами, що економить час і зусилля наших клієнтів",
+    key: "service_construction_permits",
+    descriptionKey: "service_construction_permits_description",
     icon: LuConstruction,
+    image: image2,
   },
   {
-    title: "Введення в експлуатацію",
-    description:
-      "Забезпечуємо виконання всіх вимог для отримання відповідних сертифікатів, що підтверджують готовність об'єкта до експлуатації",
+    key: "service_commissioning",
+    descriptionKey: "service_commissioning_description",
     icon: FaCity,
+    image: image3,
   },
   {
-    title: "Юридична допомога",
-    description:
-      "Консультації, юридичний аналіз і супровід у всіх аспектах, пов’язаних із будівництвом, що дозволяє нашим клієнтам зосередитися на своїх завданнях",
+    key: "service_legal_help",
+    descriptionKey: "service_legal_help_description",
     icon: GoLaw,
+    image: image4,
   },
 ];
 
 export default function CardList() {
+  const { t } = useTranslation(); // Initialize i18next for translations
+
   return (
-    <div className="relative flex flex-col md:flex-row w-full sm:h-[600px] h-full text-white">
+    <div className="w-full">
       {sections.map((section, index) => {
-        const IconComponent = section.icon; // Get the component reference
+        const IconComponent = section.icon;
         const isEven = index % 2 === 0;
 
         return (
           <div
             key={index}
-            className={`relative flex-1 flex flex-col items-center justify-center text-center z-10 py-6 sm:py-0
-              ${isEven ? "bg-gray-900 text-white" : "bg-white text-gray-900"}
-            `}
+            className={`flex overflow-hidden h-[calc(100vh)] ${
+              isEven ? "bg-white text-brand-dark" : "bg-brand-dark text-white"
+            }`}
+            id={`service-${index}`}
           >
-            {/* Icon & Title */}
-            <div className="flex flex-col items-center justify-center min-h-[80px] ">
-              <IconComponent className="sm:text-9xl text-7xl  text-brand-light" />{" "}
-              {/* Icon color for contrast */}
-              <h2 className="text-3xl font-bold">{section.title}</h2>
+            <div className="container flex flex-col sm:flex-row mx-auto">
+              <div className="flex flex-col justify-center items-center text-center h-full">
+                <IconComponent className="text-6xl text-brand mb-4" />
+                <h2 className="text-3xl font-bold mb-4">
+                  {t(section.key)} {/* Dynamic translation for title */}
+                </h2>
+                <p className="text-2xl font-medium">
+                  {t(section.descriptionKey)} {/* Dynamic translation for description */}
+                </p>
+              </div>
+              <img
+                src={section.image}
+                alt={section.key}
+                className="w-full h-full sm:h-[400px] sm:w-[400px] object-cover object-center"
+              />
             </div>
-
-            {/* Always Visible Description */}
-            <div className="p-4 text-lg">{section.description}</div>
           </div>
         );
       })}

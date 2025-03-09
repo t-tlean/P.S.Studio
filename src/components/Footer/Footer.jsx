@@ -5,14 +5,17 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/white_logo.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-brand-dark text-white py-8">
       <div className="container mx-auto px-4">
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between  text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between text-center md:text-left">
           {/* Logo & About */}
           <div>
             <img
@@ -20,19 +23,14 @@ const Footer = () => {
               alt="Company Logo"
               className="mx-auto md:mx-0 w-[260px] mb-4"
             />
-            <p className="text-gray-400">
-              Ваш дім може зробити більше. Забезпечення якості та досконалості
-              щодня.
-            </p>
+            <p className="text-gray-400">{t("footer_about")}</p>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Зв'яжіться з нами</h3>
-            <p className="text-gray-400">
-              Черкаси вул.Б.Вишневецького буд. 37, 502
-            </p>
-            <p className="text-gray-400">+38 (066) 785 03 11</p>
+            <h3 className="text-xl font-semibold mb-4">{t("contact_us")}</h3>
+            <p className="text-gray-400">{t("address_text")}</p>
+            <p className="text-gray-400">{t("phone_text")}</p>
             <p className="text-gray-400">p.s.studio.main@gmail.com</p>
           </div>
         </div>
@@ -44,7 +42,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Copyright */}
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} P.S.Studio. Всі права захищені
+            © {new Date().getFullYear()} P.S.Studio. {t("all_rights_reserved")}
           </p>
 
           {/* Social Media */}

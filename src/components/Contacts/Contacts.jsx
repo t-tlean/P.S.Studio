@@ -1,69 +1,64 @@
 import React from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Contacts = () => {
+  const { t } = useTranslation(); // Initialize i18next
+
   const contactData = [
     {
-      icon: <FaMapMarkerAlt className="text-brand text-3xl sm:text-4xl text-brand-light" />,
-      title: "Адреса",
-      subtitle: "Знайдіть нас тут",
-      text: "Черкаси, вул. Б. Вишневецького, буд. 37, офіс 502",
+      key: "address", // Translation key for title
+      subtitleKey: "find_us_here", // Translation key for subtitle
+      textKey: "address_text", // Translation key for text
     },
     {
-      icon: <FaPhoneAlt className="text-brand text-3xl sm:text-4xl text-brand-light" />,
-      title: "Телефон",
-      subtitle: "Зателефонуйте нам",
-      text: "+38 (066) 785 0311  +38 (067) 114 3392",
+      key: "phone",
+      subtitleKey: "call_us",
+      textKey: "phone_text",
     },
     {
-      icon: <FaEnvelope className="text-brand text-3xl sm:text-4xl text-brand-light" />,
-      title: "Електронна пошта",
-      subtitle: "Напишіть нам",
-      text: "p.s.studio.main@gmail.com",
+      key: "email",
+      subtitleKey: "write_to_us",
+      textKey: "email_text",
     },
   ];
 
   return (
-    <div className="container mx-auto pb-12 px-4 sm:px-8">
-      {/* Header */}
-      <div className="text-center p-8 sm:p-16">
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900">
-          Ми тут для вас,
+    <div className="container mx-auto pb-16">
+      <div className="text-center pt-16">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-brand-light">
+          {t("we_are_here_for_you")} {/* Dynamic translation for heading */}
         </h2>
-        <span className="text-4xl sm:text-6xl uppercase font-bold text-brand">
-          Зв'яжіться з нами
+        <span className="text-4xl sm:text-6xl font-bold text-brand">
+          {t("contact_us")} {/* Dynamic translation for subheading */}
         </span>
-        <p className="text-gray-600 mt-4 text-base sm:text-lg">
-          Є питання щодо нас або наших послуг? Будь ласка, звертайтеся до нас.
+        <p className="text-brand-light mt-4 text-xl">
+          {t("contact_us_description")}
           <br />
-          Ми працюємо з <span className="font-bold">10:00 до 18:00</span>, з
-          понеділка по п’ятницю.
+          {t("working_hours")}
         </p>
       </div>
 
-      {/* Contact Info & Map */}
-      <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-12 relative text-center">
         {/* Contact Info */}
-        <ul className="flex flex-col w-full md:w-1/3 gap-6">
+        <ul className="flex flex-col w-full md:w-1/3 gap-6 p-4 rounded-2xl">
           {contactData.map((item, index) => (
             <li
               key={index}
-              className="flex flex-col items-center text-center bg-white border border-gray-300 rounded-xl shadow-md p-5 sm:p-6"
+              className="flex flex-col items-center justify-center text-center bg-brand-light text-white border border-gray-300 rounded-xl shadow-md p-5 sm:p-6 space-y-2"
             >
-              <p className="border-b text-lg sm:text-xl border-gray-300 pb-2 w-full">
-                {item.subtitle}
+              <p className="border-b text-2xl border-gray-300 pb-2 w-full font-bold">
+                {t(item.subtitleKey)} {/* Dynamic translation for subtitle */}
               </p>
-              <div className="flex items-center gap-2 text-xl sm:text-2xl mt-2">
-                {item.icon}
-                <h3>{item.title}</h3>
+              <div className="flex flex-col items-center gap-2 text-2xl mt-2">
+                <h3 className="font-semibold">{t(item.key)}</h3> {/* Dynamic translation for title */}
               </div>
-              <p className="text-lg sm:text-xl mt-2">{item.text}</p>
+              <p className="text-2xl sm:text-2xl mt-2">{t(item.textKey)}</p> {/* Dynamic translation for text */}
             </li>
           ))}
         </ul>
 
         {/* Google Map */}
-        <div className="w-full md:w-2/3 h-[300px] md:h-[500px] rounded-lg overflow-hidden shadow-md">
+        <div className="w-full md:w-2/3 h-[300px] md:h-[620px] rounded-lg overflow-hidden shadow-xl flex justify-center items-center">
           <iframe
             title="map"
             className="h-full w-full"
