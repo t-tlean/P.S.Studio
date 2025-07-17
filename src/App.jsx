@@ -11,8 +11,13 @@ const App = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setFadeOut(true), 500); // Start fading out after 0.5s
-    setTimeout(() => setLoading(false), 750); // Remove preloader after fade-out
+    const fadeTimeout = setTimeout(() => setFadeOut(true), 750); // Fade out start
+    const loadTimeout = setTimeout(() => setLoading(false), 750); // Remove loader
+
+    return () => {
+      clearTimeout(fadeTimeout);
+      clearTimeout(loadTimeout);
+    };
   }, []);
 
   return loading ? (
@@ -22,16 +27,18 @@ const App = () => {
       }`}
     >
       <img
-        src={logo} // Use the imported logo
+        src={logo}
         alt="Logo"
         className="w-32 h-auto animate-pulse"
+        loading="eager"
+        decoding="sync"
       />
     </div>
   ) : (
     <main className="w-full">
       <Header />
       <section className="select-none">
-        <Hero/>
+        <Hero />
       </section>
       <section className="select-none sm:hidden block">
         <CardList />
